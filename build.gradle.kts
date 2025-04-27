@@ -1,9 +1,9 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
-	kotlin("plugin.spring") version "1.9.25"
-	id("org.springframework.boot") version "3.4.5"
-	id("io.spring.dependency-management") version "1.1.7"
-	kotlin("plugin.jpa") version "1.9.25"
+	kotlin("jvm") version Version.Plugin.KOTLIN
+	kotlin("plugin.spring") version Version.Plugin.KOTLIN
+	kotlin("plugin.jpa") version Version.Plugin.KOTLIN
+	id("org.springframework.boot") version Version.Plugin.SPRING_BOOT
+	id("io.spring.dependency-management") version Version.Plugin.SPRING_DEPENDENCY_MANAGEMENT
 }
 
 group = "com.sync"
@@ -24,6 +24,13 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j")
+
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${Version.SPRING_DOC}")
+	implementation("net.logstash.logback:logstash-logback-encoder:${Version.LOGSTASH}")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
