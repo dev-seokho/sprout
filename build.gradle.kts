@@ -2,6 +2,7 @@ plugins {
 	kotlin("jvm") version Version.Plugin.KOTLIN
 	kotlin("plugin.spring") version Version.Plugin.KOTLIN
 	kotlin("plugin.jpa") version Version.Plugin.KOTLIN
+	kotlin("plugin.noarg") version Version.Plugin.KOTLIN
 	id("org.springframework.boot") version Version.Plugin.SPRING_BOOT
 	id("io.spring.dependency-management") version Version.Plugin.SPRING_DEPENDENCY_MANAGEMENT
 }
