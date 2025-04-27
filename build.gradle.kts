@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -41,6 +41,25 @@ allOpen {
 	annotation("jakarta.persistence.Embeddable")
 }
 
+tasks {
+	compileKotlin {
+		kotlinOptions {
+			freeCompilerArgs += "-Xjsr305-strict"
+			jvmTarget = "21"
+		}
+	}
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.register("localBootRun") {
+	group = "application"
+	doFirst {
+		tasks.bootRun {
+			args("--spring.profiles.active=local")
+		}
+	}
+	finalizedBy("bootRun")
 }
