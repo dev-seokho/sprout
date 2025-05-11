@@ -1,8 +1,5 @@
-package com.sync.sprout.support.util
+package com.sync.sprout.support.util.coroutine
 
-import com.sync.sprout.support.model.AsyncFail
-import com.sync.sprout.support.model.AsyncMapResult
-import com.sync.sprout.support.model.AsyncSuccess
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
