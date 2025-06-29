@@ -9,6 +9,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.slf4j.MDCContext
 import org.slf4j.Logger
@@ -41,7 +42,7 @@ fun CoroutineScope.withLaunch(
     start: CoroutineStart = CoroutineStart.DEFAULT,
     block: suspend CoroutineScope.() -> Unit,
 ): Job {
-    return this.async(context + SupervisorJob() + SproutCoroutineExceptionHandler() + MDCContext(), start, block)
+    return this.launch(context + SupervisorJob() + SproutCoroutineExceptionHandler() + MDCContext(), start, block)
 }
 
 fun <T> CoroutineScope.withAsync(
